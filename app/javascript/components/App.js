@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+import Header from "./pages/Header";
+import LandingPage from "./pages/LandingPage";
 
 class App extends React.Component {
   render() {
@@ -13,14 +14,17 @@ class App extends React.Component {
     return (
       <React.Fragment>
         {logged_in && (
-          <div>
-            <a href={sign_out_route}>Sign Out</a>
-          </div>
+          <Header
+            logged_in={logged_in}
+            sign_in_route={sign_in_route}
+            sign_out_route={sign_out_route}
+          />
         )}
         {!logged_in && (
-          <div>
-            <a href={sign_in_route}>Sign In</a>
-          </div>
+          <LandingPage
+            new_user_route={new_user_route}
+            sign_in_route={sign_in_route}
+          />
         )}
       </React.Fragment>
     );
