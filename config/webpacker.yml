@@ -48,6 +48,9 @@ default: &default
     - .jpeg
     - .jpg
 
+    resolved_paths: 
+      ['app/javascript/images', 'app/assets/images']
+
 development:
   <<: *default
   compile: true

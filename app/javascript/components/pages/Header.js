@@ -7,11 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
 } from "reactstrap";
 
 const Header = (props) => {
@@ -33,7 +28,7 @@ const Header = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Apartments</NavLink>
+              <NavLink href="/apartmentindex">Apartments</NavLink>
             </NavItem>
 
             {logged_in && (
