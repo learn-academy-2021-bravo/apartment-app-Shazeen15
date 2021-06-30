@@ -4,21 +4,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(image_path("apart-landing-page.jpeg"));
+  background-image: url(image_path("apart-landing-page.jpg"));
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-}
 
-.landing-page .nav-link {
-  margin: 10% 0;
-}
-.landing-page button {
-  background-color: pink;
-  border: none;
-}
+  .nav-link {
+    margin: 20% 0;
+  }
 
-.landing-page button:hover {
-  background-color: #ff8c9f;
-  border: none;
+  button {
+    background-color: pink;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #ff8c9f;
+    border: none;
+  }
 }
