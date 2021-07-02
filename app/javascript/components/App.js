@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import ApartmentIndex from "./pages/ApartmentIndex";
 import AllApartmentShow from "./pages/AllApartmentShow";
 import AllApartmentsIndex from "./pages/AllApartmentsIndex";
+import ApartmentNew from "./pages/ApartmentNew";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,13 +21,36 @@ class App extends React.Component {
   }
 
   readAllApartment = () => {
-    fetch("http://localhost:3000/apartments")
+    fetch("/apartments")
       .then((res) => res.json())
       .then((payload) => {
         this.setState({ allapartments: payload });
       })
       .catch((errors) => {
         console.log("read errors:", errors);
+      });
+  };
+
+  createApartment = (apartmentForm) => {
+    console.log(apartmentForm);
+    fetch("/apartments", {
+      body: JSON.stringify(apartmentForm),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (response.status === 422) {
+          alert("There is something wrong with your submission.");
+        }
+        return response.json();
+      })
+      .then(() => {
+        this.readAllApartment();
+      })
+      .catch((errors) => {
+        console.log("create errors:", errors);
       });
   };
 
@@ -71,7 +95,13 @@ class App extends React.Component {
             <Route
               path="/apartmentindex"
               render={(props) => {
-                return <ApartmentIndex />;
+                return (
+                  <ApartmentIndex
+                    allapartments={this.state.allapartments}
+                    new_user_route={new_user_route}
+                    sign_in_route={sign_in_route}
+                  />
+                );
               }}
             />
             <Route
@@ -80,8 +110,6 @@ class App extends React.Component {
                 return (
                   <AllApartmentsIndex
                     allapartments={this.state.allapartments}
-                    new_user_route={new_user_route}
-                    sign_in_route={sign_in_route}
                   />
                 );
               }}
@@ -93,7 +121,23 @@ class App extends React.Component {
                 let apartment = this.state.allapartments.find(
                   (apartment) => apartment.id === +id
                 );
-                return <AllApartmentShow apartment={apartment} />;
+                return (
+                  <AllApartmentShow
+                    apartment={apartment}
+                    logged_in={logged_in}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/apartmentnew"
+              render={(props) => {
+                return (
+                  <ApartmentNew
+                    current_user={current_user}
+                    createApartment={this.createApartment}
+                  />
+                );
               }}
             />
           </Switch>

@@ -30,6 +30,9 @@ const Header = (props) => {
             <NavItem>
               <NavLink href="/apartmentindex">Apartments</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/apartmentnew">List New Apartments</NavLink>
+            </NavItem>
 
             {logged_in && (
               <NavItem>

@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 
 export default class ApartmentShow extends Component {
   render() {
-    const { apartment } = this.props;
+    const { apartment, logged_in } = this.props;
     console.log(apartment);
     return (
       <div>
@@ -20,9 +20,16 @@ export default class ApartmentShow extends Component {
           </div>
         )}
         <div className="lp-links">
-          <NavLink to="/allapartmentsindex">
-            <Button>Apartments</Button>
-          </NavLink>
+          {logged_in && (
+            <NavLink to="/apartmentsindex">
+              <Button>Apartments</Button>
+            </NavLink>
+          )}
+          {!logged_in && (
+            <NavLink to="/allapartmentsindex">
+              <Button>Apartments</Button>
+            </NavLink>
+          )}
         </div>
       </div>
     );

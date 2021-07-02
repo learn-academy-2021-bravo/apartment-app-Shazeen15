@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { NavLink, Card, Button, CardTitle, Row, Col } from "reactstrap";
+import { Card, Button, CardTitle, Row, Col } from "reactstrap";
 
 export default class AllApartmentsIndex extends Component {
   render() {
@@ -12,12 +12,6 @@ export default class AllApartmentsIndex extends Component {
           <Link to="/">
             <Button>Home</Button>
           </Link>
-          <NavLink href={new_user_route}>
-            <Button>Sign Up</Button>
-          </NavLink>
-          <NavLink href={sign_in_route}>
-            <Button>Sign In</Button>
-          </NavLink>
         </div>
 
         <div className="allapartindex">
