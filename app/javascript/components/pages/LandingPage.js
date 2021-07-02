@@ -24,7 +24,7 @@ export default class LandingPage extends Component {
           </div>
 
           <div className="lp-links">
-            <NavLink href="/allapartments">
+            <NavLink href="/allapartmentsindex">
               <Button>Apartments</Button>
             </NavLink>
           </div>

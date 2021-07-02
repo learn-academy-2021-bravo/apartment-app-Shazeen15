@@ -4,8 +4,8 @@ import Dash from "./pages/Dash";
 import Header from "./pages/Header";
 import LandingPage from "./pages/LandingPage";
 import ApartmentIndex from "./pages/ApartmentIndex";
-import ApartmentShow from "./pages/ApartmentShow";
-import AllApartments from "./pages/AllApartments";
+import AllApartmentShow from "./pages/AllApartmentShow";
+import AllApartmentsIndex from "./pages/AllApartmentsIndex";
 
 class App extends React.Component {
   constructor(props) {
@@ -75,21 +75,25 @@ class App extends React.Component {
               }}
             />
             <Route
-              path="/allapartments"
+              path="/allapartmentsindex"
               render={(props) => {
                 return (
-                  <AllApartments allapartments={this.state.allapartments} />
+                  <AllApartmentsIndex
+                    allapartments={this.state.allapartments}
+                    new_user_route={new_user_route}
+                    sign_in_route={sign_in_route}
+                  />
                 );
               }}
             />
             <Route
-              path="/apartmentshow/:id"
+              path="/allapartmentshow/:id"
               render={(props) => {
                 let id = props.match.params.id;
-                let apartment = this.state.apartments.find(
+                let apartment = this.state.allapartments.find(
                   (apartment) => apartment.id === +id
                 );
-                return <ApartmentShow apartment={apartment} />;
+                return <AllApartmentShow apartment={apartment} />;
               }}
             />
           </Switch>

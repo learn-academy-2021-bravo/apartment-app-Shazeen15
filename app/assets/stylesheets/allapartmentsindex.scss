@@ -1,0 +1,44 @@
+.main-allappindex {
+  height: 100vh;
+  background-color: #5f6f7ed9;
+
+  div.nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+  }
+  button {
+    background-color: pink;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #ff8c9f;
+    border: none;
+  }
+}
+
+.allapartindex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .row {
+    margin: 3%;
+  }
+
+  button {
+    background-color: pink;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #ff8c9f;
+    border: none;
+  }
+}
