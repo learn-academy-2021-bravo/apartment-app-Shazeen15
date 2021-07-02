@@ -21,7 +21,7 @@ export default class ApartmentShow extends Component {
         )}
         <div className="lp-links">
           {logged_in && (
-            <NavLink to="/apartmentsindex">
+            <NavLink to="/apartmentindex">
               <Button>Apartments</Button>
             </NavLink>
           )}

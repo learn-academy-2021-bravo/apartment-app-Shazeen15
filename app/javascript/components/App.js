@@ -62,6 +62,7 @@ class App extends React.Component {
       sign_in_route,
       sign_out_route,
     } = this.props;
+    const api_key = process.env.REACT_APP_API_KEY;
     return (
       <>
         {logged_in && (
